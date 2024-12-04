@@ -52,29 +52,60 @@ public class barcos {
         //recorremos el tablero
         for(int i = 0; i < 5 ; i++){
             for(int j = 0; j < 5; j++){
-                if(aux_tablero[i][j] != 0){
 
-                    //Que tipo de nave es
-                    switch (aux_tablero[i][j]){
-                        case 1:
-                            System.out.println("submarino "+ i +":" + j);
-                            break;
-                        case 2:
-                            System.out.println("fragata "+ i +":" + j);
-                            break;
-                        case 4:
-                            System.out.println("Portaaviones "+ i +":" + j);
-                            break;
-                        default:
-                            System.out.println("No se lo que es");
-                            break;
+                int coordenada_actual = aux_tablero[i][j];
 
-                    }//end switch
+                if(esNave(coordenada_actual)){
+
+                    tipoNave(coordenada_actual,i,j);
+
                 }//end if
 
             }//end for
         }//end for
 
     }//end recorrerTablero
+
+
+    /**
+     * Funcion que determina si es nave o no
+     * @param valor_coordeanda coordenadas en la que nos encontramos
+     * @return true o false dependiendo si es o no nave
+     */
+    static boolean esNave(int valor_coordeanda){
+        if(valor_coordeanda > 0){
+            return true;
+        }//end if
+        else{
+            return false;
+        }//end else
+
+    }//end esNave
+
+    /**
+     * Comprueba que tipo de nave es
+     * @param valor_coordenada coordenadas de la tabla
+     * @param i para trabajar con las coordenadas de la tabla
+     * @param j para trabajar con las coordenadas de la tabla
+     */
+    static void tipoNave(int valor_coordenada,int i, int j){
+        //Que tipo de nave es
+        switch (valor_coordenada){
+            case 1:
+                System.out.println("submarino "+ i +":" + j);
+                break;
+            case 2:
+                System.out.println("fragata "+ i +":" + j);
+                break;
+            case 4:
+                System.out.println("Portaaviones "+ i +":" + j);
+                break;
+            default:
+                System.out.println("No se lo que es");
+                break;
+
+        }//end switch
+    }//end tipoNave
+
 }//end class
 
